@@ -148,36 +148,32 @@ document.querySelectorAll('.price').forEach(price => {
     priceObserver.observe(price);
 });
 
-// Mobile menu toggle (for smaller screens)
-const createMobileMenu = () => {
-    if (window.innerWidth <= 768) {
-        const navLinks = document.querySelector('.nav-links');
-        const menuToggle = document.createElement('button');
-        menuToggle.classList.add('mobile-menu-toggle');
-        menuToggle.innerHTML = 'Menu';
-        menuToggle.style.cssText = `
-            display: block;
-            background: none;
-            border: none;
-            color: white;
-            font-size: 1.8rem;
-            cursor: pointer;
-        `;
-        
-        const navContainer = document.querySelector('.navbar .container');
-        if (!document.querySelector('.mobile-menu-toggle')) {
-            navContainer.appendChild(menuToggle);
-            
-            menuToggle.addEventListener('click', () => {
-                navLinks.classList.toggle('active');
-                navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
-            });
-        }
-    }
-};
+// Mobile menu toggle
+const menuToggle = document.querySelector('.menu-toggle');
+const navLinks = document.querySelector('.nav-links');
 
-window.addEventListener('resize', createMobileMenu);
-createMobileMenu();
+if (menuToggle && navLinks) {
+    menuToggle.addEventListener('click', () => {
+        menuToggle.classList.toggle('active');
+        navLinks.classList.toggle('active');
+    });
+
+    // Close menu when clicking on a link
+    navLinks.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+            menuToggle.classList.remove('active');
+            navLinks.classList.remove('active');
+        });
+    });
+}
+
+// Close menu when clicking outside
+document.addEventListener('click', (e) => {
+    if (!e.target.closest('.nav-links') && !e.target.closest('.menu-toggle')) {
+        menuToggle?.classList.remove('active');
+        navLinks?.classList.remove('active');
+    }
+});
 
 // Add parallax effect to hero section
 window.addEventListener('scroll', () => {

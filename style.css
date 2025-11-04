@@ -51,6 +51,7 @@ body {
     font-size: 1.5rem;
     font-weight: bold;
     color: var(--white);
+    z-index: 101;
 }
 
 .nav-links {
@@ -80,6 +81,57 @@ body {
 .cta-btn:hover {
     background: #d35400;
     color: var(--white) !important;
+}
+
+.menu-toggle {
+    display: none;
+    flex-direction: column;
+    gap: 6px;
+    cursor: pointer;
+    z-index: 101;
+}
+
+.menu-toggle span {
+    display: block;
+    width: 30px;
+    height: 3px;
+    background-color: var(--white);
+    transition: all 0.3s ease;
+}
+
+@media (max-width: 768px) {
+    .menu-toggle {
+        display: flex;
+    }
+
+    .nav-links {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        height: 100vh;
+        width: 80%;
+        max-width: 400px;
+        background: var(--primary-color);
+        flex-direction: column;
+        padding: 80px 40px;
+        transition: right 0.3s ease;
+    }
+
+    .nav-links.active {
+        right: 0;
+    }
+
+    .menu-toggle.active span:nth-child(1) {
+        transform: rotate(45deg) translate(8px, 8px);
+    }
+
+    .menu-toggle.active span:nth-child(2) {
+        opacity: 0;
+    }
+
+    .menu-toggle.active span:nth-child(3) {
+        transform: rotate(-45deg) translate(8px, -8px);
+    }
 }
 
 /* Hero Section */
@@ -865,10 +917,25 @@ footer {
 }
 
 /* Responsive Design */
+@media (max-width: 1024px) {
+    .container {
+        padding: 0 30px;
+    }
+
+    .accommodation-types,
+    .rental-grid,
+    .expense-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .hero h1 {
+        font-size: 3rem;
+    }
+}
+
 @media (max-width: 768px) {
-    .nav-links {
-        flex-direction: column;
-        gap: 15px;
+    .container {
+        padding: 0 20px;
     }
     
     .hero h1 {
@@ -877,22 +944,91 @@ footer {
     
     .hero-subtitle {
         font-size: 1.1rem;
+        padding: 0 20px;
+    }
+
+    .hero-content {
+        padding: 100px 20px 40px;
     }
     
     .accommodation-types,
     .rental-grid,
     .expense-grid,
-    .calculator-cards {
+    .calculator-cards,
+    .tuition-grid {
         grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .accommodation-card,
+    .rental-card,
+    .expense-card {
+        padding: 25px;
     }
     
     .cta-buttons {
         flex-direction: column;
         align-items: center;
+        gap: 15px;
     }
     
     .btn-primary, .btn-secondary {
         width: 100%;
         max-width: 300px;
+    }
+
+    .footer-content {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+
+    .section-intro {
+        padding: 0 20px;
+    }
+
+    .calculator-section h2,
+    .tuition-section h2,
+    .living-expenses h2 {
+        font-size: 2rem;
+        padding: 0 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero h1 {
+        font-size: 2rem;
+    }
+
+    .hero-subtitle {
+        font-size: 1rem;
+    }
+
+    .hero-cta {
+        padding: 12px 30px;
+        font-size: 1rem;
+    }
+
+    .accommodation-card,
+    .rental-card,
+    .expense-card {
+        padding: 20px;
+    }
+
+    .card-icon {
+        font-size: 2.5rem;
+    }
+
+    .rental-grid {
+        gap: 15px;
+    }
+
+    .rental-type {
+        font-size: 1.3rem;
+    }
+
+    .eligibility-table th,
+    .eligibility-table td {
+        padding: 10px;
+        font-size: 0.85rem;
     }
 }
