@@ -1,0 +1,898 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary-color: #011ff3;
+    --secondary-color: #e67e22;
+    --accent-color: #3498db;
+    --text-dark: #2c3e50;
+    --text-light: #7f8c8d;
+    --bg-light: #f8f9fa;
+    --white: #ffffff;
+    --gradient-start: #011ff3;
+    --gradient-end: #1e5f8a;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: var(--text-dark);
+    overflow-x: hidden;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Navigation */
+.navbar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    padding: 20px 0;
+    background: #011ff3;
+    backdrop-filter: blur(10px);
+}
+
+.navbar .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--white);
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 30px;
+    align-items: center;
+}
+
+.nav-links a {
+    color: var(--white);
+    text-decoration: none;
+    transition: color 0.3s;
+    font-weight: 500;
+}
+
+.nav-links a:hover {
+    color: var(--secondary-color);
+}
+
+.cta-btn {
+    background: var(--secondary-color);
+    padding: 10px 25px;
+    border-radius: 25px;
+}
+
+.cta-btn:hover {
+    background: #d35400;
+    color: var(--white) !important;
+}
+
+/* Hero Section */
+.hero {
+    background: linear-gradient(135deg, var(--gradient-start) 0%, var(--gradient-end) 100%);
+    color: var(--white);
+    min-height: 600px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><rect fill="none" width="1200" height="600"/><g fill-opacity="0.1"><circle fill="white" cx="100" cy="100" r="80"/><circle fill="white" cx="900" cy="400" r="120"/><circle fill="white" cx="1100" cy="150" r="60"/></g></svg>');
+    opacity: 0.3;
+}
+
+.hero-content {
+    text-align: center;
+    position: relative;
+    z-index: 2;
+    padding: 120px 20px 60px;
+}
+
+.hero h1 {
+    font-size: 3.5rem;
+    margin-bottom: 20px;
+    animation: fadeInUp 0.8s ease;
+}
+
+.hero-subtitle {
+    font-size: 1.3rem;
+    margin-bottom: 30px;
+    opacity: 0.95;
+    animation: fadeInUp 0.8s ease 0.2s both;
+}
+
+.hero-cta {
+    display: inline-block;
+    background: var(--secondary-color);
+    color: var(--white);
+    padding: 15px 40px;
+    text-decoration: none;
+    border-radius: 30px;
+    font-weight: bold;
+    font-size: 1.1rem;
+    transition: transform 0.3s, box-shadow 0.3s;
+    animation: fadeInUp 0.8s ease 0.4s both;
+}
+
+.hero-cta:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 30px rgba(230, 126, 34, 0.4);
+}
+
+/* Intro Section */
+.intro {
+    padding: 80px 20px;
+    background: var(--white);
+    text-align: center;
+}
+
+.intro h2 {
+    font-size: 2.5rem;
+    color: var(--primary-color);
+    margin-bottom: 20px;
+}
+
+.intro p {
+    font-size: 1.1rem;
+    color: var(--text-light);
+    max-width: 800px;
+    margin: 0 auto;
+    line-height: 1.8;
+}
+
+/* Accommodation Section */
+.accommodation {
+    padding: 80px 20px;
+    background: var(--bg-light);
+}
+
+.accommodation h2 {
+    font-size: 2.5rem;
+    color: var(--primary-color);
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.section-intro {
+    text-align: center;
+    color: var(--text-light);
+    max-width: 700px;
+    margin: 0 auto 50px;
+    font-size: 1.1rem;
+}
+
+.accommodation-types {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-bottom: 60px;
+}
+
+.accommodation-card {
+    background: var(--white);
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.accommodation-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+}
+
+.accommodation-card.featured {
+    border: 2px solid var(--secondary-color);
+}
+
+.card-icon {
+    font-size: 3rem;
+    margin-bottom: 20px;
+}
+
+.accommodation-card h3 {
+    color: var(--primary-color);
+    margin-bottom: 15px;
+    font-size: 1.5rem;
+}
+
+.accommodation-card p {
+    color: var(--text-light);
+    margin-bottom: 20px;
+    line-height: 1.6;
+}
+
+.card-link {
+    color: var(--accent-color);
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s;
+}
+
+.card-link:hover {
+    color: var(--secondary-color);
+}
+
+/* Rental Section */
+.rental-section {
+    margin-top: 60px;
+}
+
+.rental-section h3 {
+    font-size: 2rem;
+    color: var(--primary-color);
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+.rental-note {
+    text-align: center;
+    color: var(--text-light);
+    margin-bottom: 40px;
+}
+
+.rental-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 30px;
+    margin-bottom: 30px;
+}
+
+.rental-card {
+    background: var(--white);
+    border-radius: 15px;
+    padding: 30px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+}
+
+.rental-type {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--primary-color);
+    margin-bottom: 25px;
+    padding-bottom: 15px;
+    border-bottom: 3px solid var(--secondary-color);
+}
+
+.rental-items {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.rental-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    background: var(--bg-light);
+    border-radius: 8px;
+    transition: background 0.3s;
+}
+
+.rental-item:hover {
+    background: #e8eef2;
+}
+
+.property-type {
+    color: var(--text-dark);
+    font-weight: 500;
+}
+
+.price {
+    color: var(--secondary-color);
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+.source {
+    text-align: center;
+    font-size: 0.9rem;
+    color: var(--text-light);
+    font-style: italic;
+    margin-top: 20px;
+}
+
+/* Living Expenses */
+.living-expenses {
+    padding: 80px 20px;
+    background: var(--white);
+}
+
+.living-expenses h2 {
+    font-size: 2.5rem;
+    color: var(--primary-color);
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.expense-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+}
+
+.expense-card {
+    background: var(--bg-light);
+    padding: 30px;
+    border-radius: 15px;
+    text-align: center;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.expense-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+.expense-icon {
+    font-size: 3rem;
+    margin-bottom: 15px;
+}
+
+.expense-card h3 {
+    color: var(--primary-color);
+    margin-bottom: 10px;
+    font-size: 1.3rem;
+}
+
+.expense-card p {
+    color: var(--text-light);
+    line-height: 1.6;
+}
+
+/* Calculator Section */
+.calculator-section {
+    padding: 80px 20px;
+    background: linear-gradient(135deg, var(--gradient-start) 0%, var(--gradient-end) 100%);
+    color: var(--white);
+}
+
+.calculator-section h2 {
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.calculator-section .section-intro {
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.calculator-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-top: 50px;
+}
+
+.calculator-card {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    padding: 40px;
+    border-radius: 15px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    transition: transform 0.3s, background 0.3s;
+}
+
+.calculator-card:hover {
+    transform: translateY(-5px);
+    background: rgba(255, 255, 255, 0.15);
+}
+
+.calculator-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+}
+
+.calculator-card p {
+    margin-bottom: 25px;
+    opacity: 0.9;
+    line-height: 1.6;
+}
+
+.calc-btn {
+    display: inline-block;
+    background: var(--secondary-color);
+    color: var(--white);
+    padding: 12px 30px;
+    text-decoration: none;
+    border-radius: 25px;
+    font-weight: 600;
+    transition: background 0.3s, transform 0.3s;
+}
+
+.calc-btn:hover {
+    background: #d35400;
+    transform: scale(1.05);
+}
+
+/* Eligibility Section */
+.eligibility-section {
+    padding: 80px 20px;
+    background: var(--white);
+}
+
+.eligibility-section h2 {
+    font-size: 2.5rem;
+    color: var(--primary-color);
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.eligibility-note {
+    background: var(--bg-light);
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 40px;
+    font-size: 1rem;
+    color: var(--text-dark);
+    line-height: 1.7;
+}
+
+.eligibility-note a {
+    color: var(--accent-color);
+    text-decoration: underline;
+}
+
+.eligibility-table-container {
+    overflow-x: auto;
+    margin-bottom: 30px;
+    border-radius: 10px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+}
+
+.eligibility-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: var(--white);
+    font-size: 1rem;
+}
+
+.eligibility-table th {
+    background: var(--primary-color);
+    color: white;
+    padding: 15px 12px;
+    text-align: left;
+    font-weight: 600;
+}
+
+.eligibility-table td {
+    padding: 15px 12px;
+    border-bottom: 1px solid #eee;
+    vertical-align: top;
+}
+
+.eligibility-table tr:hover {
+    background: #f8fbff;
+}
+
+.eligibility-table td:nth-child(2) {
+    font-weight: bold;
+    color: var(--secondary-color);
+}
+
+.eligibility-table sup {
+    font-size: 0.8em;
+    color: var(--secondary-color);
+}
+
+.grading-key {
+    text-align: center;
+    margin: 20px 0;
+    font-weight: 600;
+    color: var(--primary-color);
+}
+
+.eligibility-footnotes {
+    font-size: 0.9rem;
+    color: var(--text-light);
+    line-height: 1.6;
+    margin-top: 30px;
+    padding: 20px;
+    background: var(--bg-light);
+    border-radius: 10px;
+}
+
+.eligibility-footnotes p {
+    margin-bottom: 10px;
+}
+
+.eligibility-footnotes small {
+    display: block;
+    margin-top: 15px;
+    opacity: 0.8;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .eligibility-table th,
+    .eligibility-table td {
+        font-size: 0.9rem;
+        padding: 10px 8px;
+    }
+
+    .eligibility-section h2 {
+        font-size: 2rem;
+    }
+}
+
+/* === TUITION FEES SECTION === */
+.tuition-section {
+    padding: 80px 20px;
+    background: var(--bg-light);
+}
+
+.tuition-section h2 {
+    font-size: 2.5rem;
+    color: var(--primary-color);
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.tuition-section .section-intro {
+    text-align: center;
+    color: var(--text-light);
+    max-width: 700px;
+    margin: 0 auto 50px;
+    font-size: 1.1rem;
+}
+
+.tuition-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+}
+
+.tuition-card {
+    background: var(--white);
+    padding: 40px 20px;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.tuition-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+}
+
+.tuition-card h3 {
+    color: var(--primary-color);
+    margin-bottom: 15px;
+    font-size: 1.5rem;
+}
+
+.tuition-range {
+    font-size: 1.3rem;
+    color: var(--secondary-color);
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.tuition-link {
+    display: inline-block;
+    background: var(--secondary-color);
+    color: var(--white);
+    padding: 12px 30px;
+    text-decoration: none;
+    border-radius: 25px;
+    font-weight: 600;
+    transition: background 0.3s, transform 0.3s;
+}
+
+.tuition-link:hover {
+    background: #d35400;
+    transform: scale(1.05);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .tuition-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* === VISA SECTION STYLES === */
+.visa-section {
+    padding: 80px 20px;
+    background: #011ff3;
+}
+
+.visa-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 36px;
+    padding: 18px 0;
+    border-bottom: 1px solid #eef2f6;
+}
+
+.visa-header .logo {
+    width: 42px;
+    height: 42px;
+    background: #005a9c;
+    border-radius: 6px;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 18px;
+}
+
+.visa-section h1 {
+    margin: 0 0 12px;
+    font-size: 28px;
+    color: #005a9c;
+}
+
+.visa-section .lead {
+    color: #000;
+    line-height: 1.6;
+    margin-bottom: 24px;
+}
+
+.visa-section .card {
+    background: white;
+    border-radius: 10px;
+    padding: 18px;
+    box-shadow: 0 6px 20px rgba(2,6,23,.04);
+    margin-bottom: 18px;
+    color: #000;
+}
+
+.visa-section .steps {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    margin-top: 18px;
+}
+
+.visa-section .step {
+    padding: 14px;
+    border-radius: 8px;
+    border: 1px solid #e6edf6;
+    background: linear-gradient(180deg, #ffffff, #fbfdff);
+    color: #2c3e50;
+}
+
+.visa-section .step h3 {
+    margin: 6px 0 8px;
+    font-size: 16px;
+    color: #000;
+}
+
+.visa-section .step p {
+    margin: 0;
+    color: #000000;
+    font-size: 14px;
+}
+
+.visa-section .info {
+    display: flex;
+    gap: 12px;
+    margin-top: 18px;
+    color: #000;
+}
+
+.visa-section .info .left { flex: 1; }
+.visa-section .info .right { width: 320px; }
+
+.visa-section .faq h3 { margin-top: 0; }
+
+.visa-section .accordion { margin-top: 12px; }
+.visa-section .acc-item { border-top: 1px solid #eef2f6; }
+.visa-section .acc-btn {
+    width: 100%;
+    text-align: left;
+    padding: 14px;
+    background: none;
+    border: 0;
+    font-size: 15px;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.visa-section .acc-panel {
+    padding: 0 14px 14px;
+    display: none;
+    color: #000;
+}
+
+.visa-btn {
+    padding: 8px 16px;
+    background: #005a9c;
+    color: rgb(0, 0, 0);
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.visa-btn:hover {
+    background: #004a87;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+    .visa-section .hero { grid-template-columns: 1fr; }
+    .visa-section .steps { grid-template-columns: repeat(2, 1fr); }
+    .visa-section .info { flex-direction: column; }
+    .visa-section .info .right { width: 100%; }
+}
+
+@media (max-width: 520px) {
+    .visa-section .steps { grid-template-columns: 1fr; }
+}
+
+/* CTA Section */
+.cta-section {
+    padding: 80px 20px;
+    background: var(--bg-light);
+    text-align: center;
+}
+
+.cta-section h2 {
+    font-size: 2.5rem;
+    color: var(--primary-color);
+    margin-bottom: 20px;
+}
+
+.cta-section p {
+    font-size: 1.1rem;
+    color: var(--text-light);
+    margin-bottom: 40px;
+}
+
+.cta-buttons {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.btn-primary, .btn-secondary {
+    padding: 15px 40px;
+    text-decoration: none;
+    border-radius: 30px;
+    font-weight: bold;
+    font-size: 1.1rem;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.btn-primary {
+    background: var(--secondary-color);
+    color: var(--white);
+}
+
+.btn-primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 30px rgba(230, 126, 34, 0.4);
+}
+
+.btn-secondary {
+    background: transparent;
+    color: var(--primary-color);
+    border: 2px solid var(--primary-color);
+}
+
+.btn-secondary:hover {
+    background: var(--primary-color);
+    color: var(--white);
+    transform: translateY(-3px);
+}
+
+/* Footer */
+footer {
+    background: var(--primary-color);
+    color: var(--white);
+    padding: 60px 20px 20px;
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 40px;
+    margin-bottom: 40px;
+}
+
+.footer-section h4 {
+    margin-bottom: 20px;
+    font-size: 1.2rem;
+}
+
+.footer-section ul {
+    list-style: none;
+}
+
+.footer-section ul li {
+    margin-bottom: 10px;
+}
+
+.footer-section a {
+    color: rgba(255, 255, 255, 0.8);
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.footer-section a:hover {
+    color: var(--secondary-color);
+}
+
+.footer-bottom {
+    text-align: center;
+    padding-top: 30px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    color: rgba(255, 255, 255, 0.7);
+}
+
+/* Animations */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .nav-links {
+        flex-direction: column;
+        gap: 15px;
+    }
+    
+    .hero h1 {
+        font-size: 2.5rem;
+    }
+    
+    .hero-subtitle {
+        font-size: 1.1rem;
+    }
+    
+    .accommodation-types,
+    .rental-grid,
+    .expense-grid,
+    .calculator-cards {
+        grid-template-columns: 1fr;
+    }
+    
+    .cta-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .btn-primary, .btn-secondary {
+        width: 100%;
+        max-width: 300px;
+    }
+}
